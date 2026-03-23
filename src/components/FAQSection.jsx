@@ -45,7 +45,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-[#050505] w-full py-32 px-4 md:px-12 lg:px-24 overflow-hidden fade-in-section">
+    <section id="faq" className="bg-[#050505] w-full py-32 px-4 md:px-12 lg:px-24 overflow-hidden fade-in-section">
       <div className="max-w-[1200px] mx-auto">
         
         {/* HEADER */}

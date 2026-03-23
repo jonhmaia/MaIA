@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function SolutionsSection() {
   return (
-    <section className="bg-[#050505] min-h-screen py-24 px-6 md:px-12 lg:px-24 flex flex-col items-center relative overflow-hidden">
+    <section id="solutions" className="bg-[#050505] min-h-screen py-24 px-6 md:px-12 lg:px-24 flex flex-col items-center relative overflow-hidden border-t border-white/5">
       
-      {/* Background Glow */}
+      {/* Background Flow Glows */}
       <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-[#00f0c0] opacity-[0.02] blur-[100px] rounded-full pointer-events-none"></div>
 
       {/* Grid Container */}

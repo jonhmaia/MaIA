@@ -12,7 +12,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="bg-[#050505] min-h-screen py-24 px-6 md:px-12 lg:px-24 flex flex-col items-center border-t border-white/5 relative overflow-hidden">
+    <section id="features" className="bg-[#050505] min-h-screen py-24 px-6 md:px-12 lg:px-24 flex flex-col items-center border-t border-white/5 relative overflow-hidden">
       
       {/* Header */}
       <div className="text-center flex flex-col items-center mb-16 fade-in-section">

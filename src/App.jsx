@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Chatbox from './components/Chatbox';
 import IntegrationsSection from './components/IntegrationsSection';
 import FeaturesSection from './components/FeaturesSection';
 import SolutionsSection from './components/SolutionsSection';
 import FooterSection from './components/FooterSection';
 import FAQSection from './components/FAQSection';
+import ContactSection from './components/ContactSection';
 
 const clientLogos = [
   "arthur camapum.avif",
@@ -16,6 +17,8 @@ const clientLogos = [
 ];
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -54,24 +57,40 @@ function App() {
               <a href="#home" className="nav-link active">Início</a>
             </li>
             <li className="nav-item">
-              <a href="#chatbot-section-nav" className="nav-link">Assistente</a>
+              <a href="#features" className="nav-link">Benefícios</a>
+            </li>
+            <li className="nav-item">
+              <a href="#solutions" className="nav-link">Soluções</a>
+            </li>
+            <li className="nav-item">
+              <a href="#faq" className="nav-link">FAQ</a>
             </li>
           </ul>
 
           <button
-            className="nav-toggle"
+            className={`nav-toggle ${isMobileMenuOpen ? 'active' : ''}`}
             aria-label="Abrir menu"
-            aria-expanded="false"
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <span className="hamburger-icon"></span>
           </button>
 
-          <ul className="nav-list">
+          <ul className={`nav-list ${isMobileMenuOpen ? 'active' : ''}`}>
             <li className="nav-item">
-              <a href="#home" className="nav-link active">Home</a>
+              <a href="#home" className="nav-link active" onClick={() => setIsMobileMenuOpen(false)}>Início</a>
+            </li>
+            <li className="nav-item">
+              <a href="#features" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Benefícios</a>
+            </li>
+            <li className="nav-item">
+              <a href="#solutions" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>Soluções</a>
+            </li>
+            <li className="nav-item">
+              <a href="#faq" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
             </li>
             <li className="nav-item mobile-only-item">
-              <a href="#contact" className="btn btn-agendar-mobile"
+              <a href="#contact" className="btn btn-agendar-mobile" onClick={() => setIsMobileMenuOpen(false)}
               >Agendar diagnóstico <span className="arrow-icon">➔</span></a
               >
             </li>
@@ -175,6 +194,9 @@ function App() {
 
         {/* --- Sexta Seção: Dúvidas Frequentes FAQ --- */}
         <FAQSection />
+
+        {/* --- Sétima Seção: Contato / Formulário de Agendamento --- */}
+        <ContactSection />
 
       </main>
 
