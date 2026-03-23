@@ -8,10 +8,10 @@ export default function SolutionsSection() {
       <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-[#00f0c0] opacity-[0.02] blur-[100px] rounded-full pointer-events-none"></div>
 
       {/* Grid Container */}
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10 fade-in-section">
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
         
         {/* LEFT COLUMN */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 fade-in-section">
           
           {/* Card 1: Top Left - Global / Globe */}
           <div className="bg-[#0a0a0a] border border-white/[0.03] rounded-[2rem] p-10 h-[400px] md:h-[460px] flex flex-col relative overflow-hidden group hover:border-white/[0.08] transition-colors">
@@ -70,7 +70,7 @@ export default function SolutionsSection() {
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 fade-in-section delay-200">
 
           {/* Card 3: Top Right - Analytics */}
           <div className="bg-[#0a0a0a] border border-white/[0.03] rounded-[2rem] p-10 h-[220px] md:h-[260px] flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group hover:border-white/[0.08] transition-colors order-2 lg:order-1">

@@ -41,6 +41,21 @@ html {
   scroll-padding-top: calc(var(--header-height) + 20px); /* Evita que a navegação por âncora fique escondida sob o header */
 }
 
+/* --- SCROLL ANIMATIONS --- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: opacity, transform;
+  transition-property: opacity, transform;
+  transition-duration: 0.8s;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 body {
   font-family: var(--font-family-base);
   background-image: var(--bg-gradient);
@@ -151,35 +166,36 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.75rem;
-  border: 2px solid var(--accent-color);
-  border-radius: 15px;
-  background-color: var(--btn-bg-color);
+  gap: 0.75rem; 
+  padding: 0.8rem 2.2rem; 
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 9999px; 
+  background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(5,5,5,1) 100%); 
   color: var(--primary-text-color);
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.3s ease, border-color 0.3s ease,
-    transform 0.2s ease, box-shadow 0.3s ease;
+  font-family: inherit; 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
-  letter-spacing: normal;
-  text-transform: none;
-  font-size: 1rem; /* Ajustado para um tamanho mais padrão */
+  letter-spacing: 0.02em; 
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .btn:hover {
-  background-color: var(--accent-color); /* Fundo accent no hover */
-  color: var(--bg-color); /* Texto escuro para contraste no hover */
-  border-color: var(--accent-color);
+  background: linear-gradient(180deg, rgba(30,30,30,1) 0%, rgba(10,10,10,1) 100%);
+  color: var(--accent-color); 
+  border-color: rgba(0, 240, 192, 0.3); 
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(var(--accent-color-rgb), 0.2);
+  box-shadow: 0 8px 25px rgba(0, 240, 192, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.btn-primary {
-  /* Herda de .btn */
+.arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btn-primary:hover {
-  /* Efeitos de hover já definidos em .btn:hover */
+
+.btn:hover .arrow-icon {
+  transform: translateX(4px); 
 }
 
 /* === HEADER === */

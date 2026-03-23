@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Chatbox from './components/Chatbox';
 import IntegrationsSection from './components/IntegrationsSection';
 import FeaturesSection from './components/FeaturesSection';
 import SolutionsSection from './components/SolutionsSection';
+import FooterSection from './components/FooterSection';
+import FAQSection from './components/FAQSection';
 
 const clientLogos = [
   "arthur camapum.avif",
@@ -14,6 +16,23 @@ const clientLogos = [
 ];
 
 function App() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const hiddenElements = document.querySelectorAll('.fade-in-section');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      hiddenElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <>
       <div id="particles-js"></div>
@@ -154,7 +173,13 @@ function App() {
         {/* --- Quinta Seção: Soluções / Synergy Dashboard --- */}
         <SolutionsSection />
 
+        {/* --- Sexta Seção: Dúvidas Frequentes FAQ --- */}
+        <FAQSection />
+
       </main>
+
+      {/* --- Footer Base c/ Planeta Terra --- */}
+      <FooterSection />
     </>
   );
 }
