@@ -16,7 +16,7 @@
   --primary-text-color: #f0f0f0;
 
   /* Variáveis adicionais */
-  --font-family-base: "Poppins", sans-serif;
+  --font-family-base: "Georgia", "Times New Roman", serif;
   --container-width: 1140px;
   --card-bg-color: #1a202c;
 
@@ -48,7 +48,6 @@ body {
   background-attachment: fixed;
   color: var(--primary-text-color);
   line-height: 1.6;
-  overflow: hidden; /* Remove completamente o scroll da página */
   position: relative;
 }
 
@@ -199,19 +198,23 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px; /* Altura total do header */
+  height: 80px; /* Mais grosso */
+  max-width: 1280px; /* Mais largo */
+  width: 95%;
 
-  border-radius: 15px;
-  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  padding: 0 2rem;
   margin-right: auto;
   margin-left: auto;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--header-pill-border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(
     145deg,
-    rgba(var(--accent-color-rgb), 0.05),
-    rgba(var(--card-bg-color), 0.5)
+    rgba(var(--accent-color-rgb), 0.08),
+    rgba(var(--card-bg-color), 0.4)
   );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .navbar-left {
@@ -323,7 +326,7 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 160px;
+  height: 55px;
   width: auto;
   max-width: none;
   transition: transform 0.3s ease, height 0.3s ease;
@@ -523,6 +526,64 @@ section {
   overflow: hidden; /* Evita que o vídeo transborde o limite da section */
 }
 
+/* === SEGUNDA SEÇÃO: CHATBOX === */
+.chatbot-overlap-section {
+  margin-top: -80px; /* Puxa para cima para sobrepor o hero */
+  padding-bottom: 120px;
+}
+
+.chatbot-box {
+  background: linear-gradient(145deg, rgba(0, 240, 192, 0.05), rgba(26, 32, 44, 0.8));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+}
+
+/* === CARROSSEL DE LOGOS === */
+.logo-carousel-wrapper {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--container-width);
+  overflow: hidden;
+  z-index: 3;
+  padding: 20px 15px;
+}
+
+.logo-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  animation: scroll-logos 20s linear infinite;
+}
+
+.logo-carousel-track img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.5;
+  filter: grayscale(100%) brightness(1.8);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo-carousel-track img:hover {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1);
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .hero-bg-video {
   position: absolute;
   top: 50%;
@@ -534,6 +595,21 @@ section {
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 0;
+}
+
+/* === CUSTOM SCROLLBAR PARA O CHAT === */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .hero-video-overlay {
@@ -1128,10 +1204,10 @@ section {
   }
   .navbar-left .logo {
     height: var(--header-content-effective-height);
-    width: 140px;
+    width: 220px;
   }
   .logo-img-header {
-    height: 100px;
+    height: 40px;
   }
 
   /* Exibe o botão de toggle e esconde a lista de navegação padrão em desktop */
@@ -1328,10 +1404,10 @@ section {
     }
     .navbar-left .logo {
       height: var(--header-content-effective-height);
-      width: 90px;
+      width: 160px;
     }
     .logo-img-header {
-      height: 140px;
+      height: 45px;
     }
 
     .navbar.container {
@@ -1443,10 +1519,10 @@ section {
     }
     .navbar-left .logo {
       height: var(--header-content-effective-height);
-      width: 80px;
+      width: 160px;
     }
     .logo-img-header {
-      height: 165px;
+      height: 50px;
     }
     .navbar.container {
       padding: 0.25rem 0.75rem;

@@ -1,4 +1,17 @@
 import React from 'react';
+import Chatbox from './components/Chatbox';
+import IntegrationsSection from './components/IntegrationsSection';
+import FeaturesSection from './components/FeaturesSection';
+import SolutionsSection from './components/SolutionsSection';
+
+const clientLogos = [
+  "arthur camapum.avif",
+  "logo aktoria.png",
+  "logo capim.svg",
+  "logo clubinho.svg",
+  "logoceia.png",
+  "watrix.svg"
+];
 
 function App() {
   return (
@@ -10,7 +23,7 @@ function App() {
           <div className="navbar-left">
             <a href="#home" className="logo">
               <img
-                src="/images/logo.png"
+                src="/images/LOGO.svg"
                 alt="Logo MaIA"
                 className="logo-img-header"
               />
@@ -25,7 +38,7 @@ function App() {
               <a href="#chatbot-section-nav" className="nav-link">Assistente</a>
             </li>
           </ul>
-          
+
           <button
             className="nav-toggle"
             aria-label="Abrir menu"
@@ -33,14 +46,14 @@ function App() {
           >
             <span className="hamburger-icon"></span>
           </button>
-          
+
           <ul className="nav-list">
             <li className="nav-item">
               <a href="#home" className="nav-link active">Home</a>
             </li>
             <li className="nav-item mobile-only-item">
               <a href="#contact" className="btn btn-agendar-mobile"
-                >Agendar diagnóstico <span className="arrow-icon">➔</span></a
+              >Agendar diagnóstico <span className="arrow-icon">➔</span></a
               >
             </li>
             <li className="nav-item mobile-only-item social-icons-mobile">
@@ -98,10 +111,10 @@ function App() {
           </video>
           <div className="hero-video-overlay"></div>
           <div className="hero-content">
-            <span className="hero-tag-accent">Simplificar para crescer</span>
+            <span className="hero-tag-accent">Se torne uma empresa de tecnologia</span>
             <h1>
               Transformando<br />seu negócio com<br /><span className="highlight"
-                >Inteligência Artificial</span
+              >Inteligência Artificial</span
               >
             </h1>
             <p>
@@ -109,12 +122,38 @@ function App() {
               estratégicos do seu negócio.
             </p>
             <div className="hero-buttons">
-              <a href="#contact" className="btn btn-primary"
-                >Agendar Diagnóstico <span className="arrow-icon">➔</span></a
+              <a href="#about" className="btn btn-primary"
+              >Conheça mais <span className="arrow-icon">➔</span></a
               >
             </div>
           </div>
+
+          {/* --- Carrossel de Clientes --- */}
+          <div className="logo-carousel-wrapper">
+            <div className="logo-carousel-track">
+              {/* Duplicamos a lista 4x para garantir loop contínuo */}
+              {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, idx) => (
+                <img key={idx} src={`/logos/${logo}`} alt="Logo Cliente" />
+              ))}
+            </div>
+            <p className="text-xs text-slate-500 uppercase tracking-widest text-center mt-4">Algumas marcas com as quais já colaboramos</p>
+          </div>
         </section>
+
+        {/* --- Segunda Seção: Box do Chatbot --- */}
+        <section id="chatbot-section" className="chatbot-overlap-section container relative z-10 w-full px-4 mb-20 md:mb-32">
+          <Chatbox />
+        </section>
+
+        {/* --- Terceira Seção: Catálogo de Integrações (Escondida temporariamente) --- */}
+        {/* <IntegrationsSection /> */}
+
+        {/* --- Quarta Seção: Features (O que você recebe) --- */}
+        <FeaturesSection />
+
+        {/* --- Quinta Seção: Soluções / Synergy Dashboard --- */}
+        <SolutionsSection />
+
       </main>
     </>
   );
