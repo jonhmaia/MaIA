@@ -1,0 +1,58 @@
+---
+description: Diretrizes de design MaIA — marca azul do hero e marcas
+alwaysApply: true
+---
+
+# Design MaIA (marca azul)
+
+Fonte da verdade visual: seções **hero** e **marcas** (`heroFoot` + `LampLight`). Toda UI nova deve parecer continuação dessas seções, não outro produto.
+
+## Tokens (usar sempre)
+
+Definidos em `src/app/globals.css` `:root`:
+
+- Fundo: `#000000` / `--deep` — preto puro, sem cream/off-white
+- Superfície: `--surface` `#0c0c0c`, soft `--deep-soft` `#0a0a0a`
+- Texto: `--ink` `#f2f4f1`, muted `--muted` `rgba(255,255,255,0.48)`
+- Acento (nome legado `--mint`, cor **azul**): `#4da3ff`
+- Acento forte: `--mint-strong` `#2388ff`
+- Glow/luz: `rgba(77, 163, 255, …)`, highlights `#8ec8ff` / `#8ec8ff`
+- Linha: `--line` `rgba(255,255,255,0.12)`
+- Fonte: `--font-geist-sans` (Geist), letter-spacing negativo em headlines
+
+## Atmosfera (hero + marcas)
+
+- Base preta flat; atmosfera via **luz azul difusa** (radiais/cones blur), não via cards nem gradientes roxos
+- Referência de luz: `LampLight` — ambient + cone + core em azuis `rgba(77/90/120/160/210, …, 255)`
+- Separadores: beam azul discreto (`SectionDivider`), não hairline denso tipo jornal
+- CTAs: pill branco (`pillButtonLight`) ou azul (`pillButtonMint` + glow azul fraco); hover pode ir para `--mint` / `--mint-strong`
+
+## Tipografia e layout
+
+- Headlines grandes, peso ~430–520, `letter-spacing: -0.06em` a `-0.073em`, `line-height` ~0.9–0.95
+- Um propósito por seção: marca/headline, uma frase de apoio, um grupo de CTA
+- Hero: composição única full-bleed; sem cards, badges flutuantes, stat strips ou overlays no primeiro viewport
+- Shell: `.sectionShell` (`min(1240px, 100% - 48px)`)
+
+## Motion
+
+- Preferir GSAP + ScrollTrigger (padrão do repo: `useGSAP`, `matchMedia`, `prefers-reduced-motion`)
+- Movimento a serviço de hierarquia (reveal, pin, scrub), não ruído decorativo
+- Sempre oferecer fallback estático com `prefers-reduced-motion: reduce`
+
+## Proibido neste projeto
+
+- Roxo / indigo / violet como acento
+- Verde mint real, teal ou neon não-azul (mesmo com token `--mint`)
+- Fundo cream `#F4F1EA` / terracotta / serif “editorial”
+- Layout broadsheet (regras finas densas, zero radius, colunas jornal)
+- Cards no hero; cards só quando forem container de interação necessária
+- Emojis decorativos; pills/clusters de stats competindo com a marca
+
+## Checklist rápido
+
+1. Fundo preto + acento `#4da3ff`?
+2. Luz/atmosfera azul como no hero/marcas?
+3. Tipografia Geist, headlines apertadas?
+4. Sem roxo/verde/cream?
+5. Reduced-motion tratado?

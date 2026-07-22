@@ -1,7 +1,7 @@
 const faqs = [
   {
     q: "Que tipos de projeto a MaIA desenvolve?",
-    a: "Sites, sistemas, plataformas, automações e soluções digitais sob medida — da primeira versão ao produto em evolução contínua.",
+    a: "Sites, sistemas sob medida, agentes de IA, automação de processos e refatoração de sistemas — da primeira versão ao produto em evolução contínua.",
   },
   {
     q: "Vocês trabalham com uma ideia ainda não validada?",

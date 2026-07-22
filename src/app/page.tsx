@@ -2,6 +2,10 @@ import Image from "next/image";
 import FaqAccordion from "./FaqAccordion";
 import HeroAnimation from "./HeroAnimation";
 import LogoCarousel from "./LogoCarousel";
+import PageScroll from "./PageScroll";
+import LampLight from "./LampLight";
+import SectionDivider from "./SectionDivider";
+import ServicesStair from "./ServicesStair";
 import TypewriterWords from "./TypewriterWords";
 
 function Brand({ priority = false }: { priority?: boolean }) {
@@ -100,7 +104,7 @@ const differentials = [
 
 export default function Home() {
   return (
-    <main>
+    <PageScroll>
       <section className="hero" id="inicio">
         <div className="heroGrid" aria-hidden="true" />
 
@@ -138,7 +142,7 @@ export default function Home() {
 
         <div className="heroInner sectionShell">
           <div className="heroCopy">
-            <h1>
+            <h1 data-hero-item>
               <span className="srOnly">
                 Criamos sites, sistemas, plataformas e soluções digitais que impulsionam negócios.
               </span>
@@ -149,11 +153,11 @@ export default function Home() {
                 <span>negócios.</span>
               </span>
             </h1>
-            <p className="heroDescription">
+            <p className="heroDescription" data-hero-item>
               Da estratégia ao desenvolvimento, construímos tecnologia sob medida para pessoas,
               startups e empresas.
             </p>
-            <div className="heroButtons">
+            <div className="heroButtons" data-hero-item>
               <a className="pillButton pillButtonLight" href="mailto:contato@maiainteligencia.com.br">
                 Tire sua ideia do papel <Arrow />
               </a>
@@ -164,101 +168,43 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="heroVisual">
+          <div className="heroVisual" data-parallax>
             <HeroAnimation />
           </div>
         </div>
 
         <div className="heroFoot" id="marcas" aria-labelledby="trust-heading">
-          <div className="trustIntro sectionShell">
+          <LampLight />
+
+          <div className="trustIntro sectionShell" data-reveal>
             <h2 id="trust-heading">Marcas que já construíram com a MaIA</h2>
           </div>
 
-          <LogoCarousel />
-
-          <figure className="trustQuote sectionShell">
-            <blockquote>
-              “A MaIA transformou uma ideia complexa em um produto claro, rápido e pronto para
-              escalar.”
-            </blockquote>
-            <figcaption>
-              <span className="trustQuoteName">Equipe de produto</span>
-              <span className="trustQuoteMeta">Parceiro em desenvolvimento sob medida</span>
-            </figcaption>
-          </figure>
+          <div data-reveal>
+            <LogoCarousel />
+          </div>
         </div>
       </section>
 
+      <SectionDivider />
+
       <section className="servicesSection" id="servicos" aria-labelledby="services-heading">
         <div className="sectionShell">
-          <div className="servicesIntro">
-            <h2 id="services-heading">Nossos Serviços</h2>
-            <p>Soluções digitais completas para impulsionar seu negócio.</p>
-          </div>
+          <ServicesStair />
 
-          <div className="servicesGrid">
-            <article className="serviceCard">
-              <span className="serviceIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M13 2 4.5 13.5h6L11 22l8.5-11.5h-6L13 2Z"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-              <h3>Automação</h3>
-              <p>Automatize processos repetitivos e foque no que realmente importa para o seu negócio.</p>
-            </article>
-
-            <article className="serviceCard">
-              <span className="serviceIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <rect x="5" y="8" width="14" height="10" rx="3" stroke="currentColor" strokeWidth="1.6" />
-                  <circle cx="9.5" cy="13" r="1.1" fill="currentColor" />
-                  <circle cx="14.5" cy="13" r="1.1" fill="currentColor" />
-                  <path d="M9 8V6.5a3 3 0 0 1 6 0V8" stroke="currentColor" strokeWidth="1.6" />
-                  <path d="M12 18v2M9 20h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                </svg>
-              </span>
-              <h3>Agentes de IA</h3>
-              <p>Assistentes inteligentes que trabalham 24/7 para otimizar suas operações.</p>
-            </article>
-
-            <article className="serviceCard">
-              <span className="serviceIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 8.5 12 4l8 4.5-8 4.5L4 8.5Z"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M4 12.5 12 17l8-4.5M4 16.5 12 21l8-4.5"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-              <h3>Sistemas Sob Medida</h3>
-              <p>Desenvolvimento personalizado de software alinhado às necessidades do seu negócio.</p>
-            </article>
-          </div>
-
-          <div className="servicesCta">
-            <a className="pillButton pillButtonMint" href="mailto:contato@maiainteligencia.com.br">
-              Comece seu Projeto
+          <div className="servicesCta" data-reveal>
+            <a className="pillButton pillButtonMint servicesCtaButton" href="mailto:contato@maiainteligencia.com.br">
+              Vamos construir o seu
             </a>
           </div>
         </div>
       </section>
 
+      <SectionDivider />
+
       <section className="projectsSection" id="projetos" aria-labelledby="projects-heading">
         <div className="sectionShell">
-          <div className="projectsIntro">
+          <div className="projectsIntro" data-reveal>
             <h2 id="projects-heading">Projetos que saíram do papel e entraram em operação.</h2>
             <p>
               Cases reais de produtos construídos com clareza de problema, execução próxima e
@@ -271,6 +217,7 @@ export default function Home() {
               <article
                 key={item.client}
                 className={`projectCase${index % 2 === 1 ? " projectCaseReverse" : ""}`}
+                data-reveal
               >
                 <div className="projectCopy">
                   <div className="projectClient">
@@ -329,9 +276,11 @@ export default function Home() {
         </div>
       </section>
 
+      <SectionDivider />
+
       <section className="processSection" id="como-trabalhamos" aria-labelledby="process-heading">
         <div className="sectionShell">
-          <div className="processIntro">
+          <div className="processIntro" data-reveal>
             <h2 id="process-heading">Da primeira conversa à evolução contínua.</h2>
             <p>
               Um caminho claro, sem surpresas: do diagnóstico ao lançamento, com acompanhamento de
@@ -339,9 +288,9 @@ export default function Home() {
             </p>
           </div>
 
-          <ol className="processSteps">
+          <ol className="processSteps" data-stagger>
             {steps.map((step) => (
-              <li key={step.n} className="processStep">
+              <li key={step.n} className="processStep" data-stagger-item>
                 <span className="processStepNum">{step.n}</span>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
@@ -349,26 +298,34 @@ export default function Home() {
             ))}
           </ol>
 
-          <ul className="processDiffs">
+          <ul className="processDiffs" data-stagger>
             {differentials.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item} data-stagger-item>
+                {item}
+              </li>
             ))}
           </ul>
         </div>
       </section>
 
+      <SectionDivider />
+
       <section className="faqSection" id="faq" aria-labelledby="faq-heading">
         <div className="sectionShell faqLayout">
-          <div className="faqIntro">
+          <div className="faqIntro" data-reveal>
             <h2 id="faq-heading">Perguntas frequentes</h2>
             <p>Respostas diretas para as dúvidas que mais aparecem antes de começar um projeto.</p>
           </div>
-          <FaqAccordion />
+          <div data-reveal>
+            <FaqAccordion />
+          </div>
         </div>
       </section>
 
+      <SectionDivider />
+
       <section className="finalCtaSection" id="contato" aria-labelledby="cta-heading">
-        <div className="sectionShell finalCtaInner">
+        <div className="sectionShell finalCtaInner" data-reveal>
           <h2 id="cta-heading">Tem uma ideia, um gargalo ou um produto para evoluir?</h2>
           <p>
             Conte o contexto em poucos minutos. A gente ajuda a enxergar o próximo passo com
@@ -389,7 +346,7 @@ export default function Home() {
       </section>
 
       <footer className="siteFooter">
-        <div className="sectionShell">
+        <div className="sectionShell" data-reveal>
           <div className="footerTop">
             <div className="footerBrand">
               <Brand />
@@ -425,6 +382,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </main>
+    </PageScroll>
   );
 }
