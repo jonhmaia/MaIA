@@ -5,6 +5,8 @@ import LogoCarousel from "./LogoCarousel";
 import PageScroll from "./PageScroll";
 import LampLight from "./LampLight";
 import SectionDivider from "./SectionDivider";
+import SmokeAtmosphere from "./SmokeAtmosphere";
+import ProcessTimeline from "./ProcessTimeline";
 import ServicesStair from "./ServicesStair";
 import TypewriterWords from "./TypewriterWords";
 
@@ -23,8 +25,52 @@ function Brand({ priority = false }: { priority?: boolean }) {
   );
 }
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
+function ArrowUpRightIcon({ className = "pillButtonIcon" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M3.5 10.5 10.5 3.5M10.5 3.5H5.25M10.5 3.5v5.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function MailIcon({ className = "pillButtonIcon" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M2.25 3.5h9.5c.55 0 1 .45 1 1v5c0 .55-.45 1-1 1h-9.5c-.55 0-1-.45-1-1v-5c0-.55.45-1 1-1Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m2 4.5 5 3.25L12 4.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 }
 
 const cases = [
@@ -72,41 +118,12 @@ const cases = [
   },
 ] as const;
 
-const steps = [
-  {
-    n: "01",
-    title: "Diagnóstico",
-    text: "Entendemos o problema, o contexto e o objetivo de negócio antes de falar em solução.",
-  },
-  {
-    n: "02",
-    title: "Direção",
-    text: "Definimos escopo, arquitetura e experiência — com clareza do que entra agora e do que fica para depois.",
-  },
-  {
-    n: "03",
-    title: "Construção",
-    text: "Desenvolvemos em ciclos curtos e transparentes, com acompanhamento próximo em cada etapa.",
-  },
-  {
-    n: "04",
-    title: "Lançamento e evolução",
-    text: "Colocamos no ar, acompanhamos o uso real e melhoramos com base no que o produto precisa crescer.",
-  },
-] as const;
-
-const differentials = [
-  "Comunicação direta",
-  "Acompanhamento próximo",
-  "Código sem caixa-preta",
-  "Suporte após o lançamento",
-] as const;
-
 export default function Home() {
   return (
     <PageScroll>
       <section className="hero" id="inicio">
         <div className="heroGrid" aria-hidden="true" />
+        <SmokeAtmosphere variant="hero" withBase={false} />
 
         <header className="siteHeader">
           <a href="#inicio" className="brandLink" aria-label="MaIA — início">
@@ -124,7 +141,7 @@ export default function Home() {
               Fale conosco
             </a>
             <a className="pillButton pillButtonLight" href="mailto:contato@maiainteligencia.com.br">
-              Diagnóstico <Arrow />
+              Diagnóstico <ArrowUpRightIcon />
             </a>
           </div>
 
@@ -159,11 +176,7 @@ export default function Home() {
             </p>
             <div className="heroButtons" data-hero-item>
               <a className="pillButton pillButtonLight" href="mailto:contato@maiainteligencia.com.br">
-                Tire sua ideia do papel <Arrow />
-              </a>
-              <a className="textButton" href="mailto:contato@maiainteligencia.com.br">
-                <span className="playIcon" aria-hidden="true">▶</span>
-                Fale conosco
+                Tire sua ideia do papel <ArrowUpRightIcon />
               </a>
             </div>
           </div>
@@ -171,6 +184,10 @@ export default function Home() {
           <div className="heroVisual" data-parallax>
             <HeroAnimation />
           </div>
+        </div>
+
+        <div className="heroLampBridge" aria-hidden="true">
+          <LampLight inverted />
         </div>
 
         <div className="heroFoot" id="marcas" aria-labelledby="trust-heading">
@@ -193,8 +210,8 @@ export default function Home() {
           <ServicesStair />
 
           <div className="servicesCta" data-reveal>
-            <a className="pillButton pillButtonMint servicesCtaButton" href="mailto:contato@maiainteligencia.com.br">
-              Vamos construir o seu
+            <a className="pillButton pillButtonLight servicesCtaButton" href="mailto:contato@maiainteligencia.com.br">
+              Vamos construir o seu <ArrowUpRightIcon />
             </a>
           </div>
         </div>
@@ -203,6 +220,9 @@ export default function Home() {
       <SectionDivider />
 
       <section className="projectsSection" id="projetos" aria-labelledby="projects-heading">
+        <SmokeAtmosphere variant="section" />
+        <div className="smokeFade smokeFadeTop" data-smoke-fade="top" aria-hidden="true" />
+        <div className="smokeFade smokeFadeBottom" data-smoke-fade="bottom" aria-hidden="true" />
         <div className="sectionShell">
           <div className="projectsIntro" data-reveal>
             <h2 id="projects-heading">Projetos que saíram do papel e entraram em operação.</h2>
@@ -278,35 +298,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section className="processSection" id="como-trabalhamos" aria-labelledby="process-heading">
-        <div className="sectionShell">
-          <div className="processIntro" data-reveal>
-            <h2 id="process-heading">Da primeira conversa à evolução contínua.</h2>
-            <p>
-              Um caminho claro, sem surpresas: do diagnóstico ao lançamento, com acompanhamento de
-              perto em cada etapa.
-            </p>
-          </div>
-
-          <ol className="processSteps" data-stagger>
-            {steps.map((step) => (
-              <li key={step.n} className="processStep" data-stagger-item>
-                <span className="processStepNum">{step.n}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </li>
-            ))}
-          </ol>
-
-          <ul className="processDiffs" data-stagger>
-            {differentials.map((item) => (
-              <li key={item} data-stagger-item>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ProcessTimeline />
 
       <SectionDivider />
 
@@ -324,64 +316,71 @@ export default function Home() {
 
       <SectionDivider />
 
-      <section className="finalCtaSection" id="contato" aria-labelledby="cta-heading">
-        <div className="sectionShell finalCtaInner" data-reveal>
-          <h2 id="cta-heading">Tem uma ideia, um gargalo ou um produto para evoluir?</h2>
-          <p>
-            Conte o contexto em poucos minutos. A gente ajuda a enxergar o próximo passo com
-            clareza — sem compromisso de escopo fechado na primeira conversa.
-          </p>
-          <div className="finalCtaActions">
-            <a className="pillButton pillButtonMint" href="mailto:contato@maiainteligencia.com.br">
-              Agendar diagnóstico <Arrow />
-            </a>
-            <a className="textButton" href="mailto:contato@maiainteligencia.com.br">
-              Enviar um e-mail
-            </a>
-          </div>
-          <a className="finalCtaMail" href="mailto:contato@maiainteligencia.com.br">
-            contato@maiainteligencia.com.br
-          </a>
-        </div>
-      </section>
+      <div className="closingBand">
+        <SmokeAtmosphere variant="closing" />
+        <div className="closingBandFade" data-smoke-fade aria-hidden="true" />
 
-      <footer className="siteFooter">
-        <div className="sectionShell" data-reveal>
-          <div className="footerTop">
-            <div className="footerBrand">
-              <Brand />
-              <p>Software house e soluções digitais sob medida.</p>
-            </div>
-
-            <div className="footerLinks">
-              <div>
-                <strong>Navegação</strong>
-                <a href="#inicio">Início</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#como-trabalhamos">Como trabalhamos</a>
-                <a href="#faq">FAQ</a>
-              </div>
-              <div>
-                <strong>Contato</strong>
-                <a href="mailto:contato@maiainteligencia.com.br">contato@maiainteligencia.com.br</a>
-                <a
-                  href="https://instagram.com/maiainteligencia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
+        <section className="finalCtaSection" id="contato" aria-labelledby="cta-heading">
+          <div className="finalCtaInner" data-reveal>
+            <div className="finalCtaContent sectionShell">
+              <h2 id="cta-heading">Tem uma ideia, um gargalo ou um produto para evoluir?</h2>
+              <p>
+                Conte o contexto em poucos minutos. A gente ajuda a enxergar o próximo passo com
+                clareza — sem compromisso de escopo fechado na primeira conversa.
+              </p>
+              <div className="finalCtaActions">
+                <a className="pillButton pillButtonLight" href="mailto:contato@maiainteligencia.com.br">
+                  Agendar diagnóstico <ArrowUpRightIcon />
+                </a>
+                <a className="pillButton pillButtonMint" href="mailto:contato@maiainteligencia.com.br">
+                  Enviar um e-mail <MailIcon />
                 </a>
               </div>
+              <a className="finalCtaMail" href="mailto:contato@maiainteligencia.com.br">
+                contato@maiainteligencia.com.br
+              </a>
             </div>
           </div>
+        </section>
 
-          <div className="footerBottom">
-            <span>© {new Date().getFullYear()} MaIA Inteligência. Todos os direitos reservados.</span>
-            <span>Belém — PA</span>
+        <footer className="siteFooter">
+          <div className="sectionShell" data-reveal>
+            <div className="footerTop">
+              <div className="footerBrand">
+                <Brand />
+                <p>Software house e soluções digitais sob medida.</p>
+              </div>
+
+              <div className="footerLinks">
+                <div>
+                  <strong>Navegação</strong>
+                  <a href="#inicio">Início</a>
+                  <a href="#servicos">Serviços</a>
+                  <a href="#projetos">Projetos</a>
+                  <a href="#como-trabalhamos">Como trabalhamos</a>
+                  <a href="#faq">FAQ</a>
+                </div>
+                <div>
+                  <strong>Contato</strong>
+                  <a href="mailto:contato@maiainteligencia.com.br">contato@maiainteligencia.com.br</a>
+                  <a
+                    href="https://instagram.com/maiainteligencia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="footerBottom">
+              <span>© {new Date().getFullYear()} MaIA Inteligência. Todos os direitos reservados.</span>
+              <span>Belém — PA</span>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </PageScroll>
   );
 }
